@@ -1,0 +1,2 @@
+sudo dmidecode > BIOSALL.txt
+

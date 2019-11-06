@@ -1,0 +1,60 @@
+#!/bin/bash
+echo "Youtube Downloader"
+
+echo -n "Paste Video Link: "
+read Video
+
+echo "Select one of the following ************"
+
+read -p "Download Video 480p [Y/n]: " delconf
+if [ $delconf == 'Y' ]; then
+    youtube-dl -f 18 -o "%(title)s-%(ext)s.%(ext)s" $Video
+fi
+
+read -p "Download Video 720p [Y/n]: " delconfa
+if [ $delconfa == 'Y' ]; then
+    youtube-dl -f 22 -o "%(title)s-%(ext)s.%(ext)s" $Video
+fi
+read -p "Download Video Audio [Y/n]: " delconfb
+if [ $delconfb == 'Y' ]; then
+    youtube-dl -x --audio-format mp3 -o "%(title)s-%(ext)s.%(ext)s" $Video
+
+fi
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+echo "Youtube Helper"
+echo "========================================="
+echo -n "Video to Download : "
+read video 
+
+echo " Listing Formats..."
+#youtube-dl -F $video
+
+echo -n " State Format Number 18 for 480p or 22 for 720p : "
+read Format
+
+echo "Downloading Selected Formting please wait...."
+youtube-dl -f $Format $video
+
+echo "Download Now complete"
+
